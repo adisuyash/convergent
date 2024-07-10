@@ -10,15 +10,17 @@ const Home = () => {
   return (
     <main>
       <HomeHeader />
-      <div className="text-[#D9D9D9] font-['Inter']" style={styles.div}>
-        <h2>Perpetuals on AO!</h2>
-        <p> Get ready to trade Perpetuals on Arweave!</p>
+      <div className="place-content-center text-[#D9D9D9] font-['Inter']" style={styles.div}>
+        <h2 className="grid-item">Perpetuals on AO!</h2>
+        <p className="paragraph grid-item">Get ready to trade Perpetuals on Arweave!</p>
         {connected ? (
-          <button style={styles.viewPostsButton}>
-            <Link className="font-['Inter'] bg-[]" to="/trade" style={styles.viewPostsLink}>
+          <div>
+            <button className="start-trade grid-item" style={styles.viewPostsButton}>
+            <Link className="text-[#16181D] font-medium" to="/trade" style={styles.viewPostsLink}>
               Start Trading
             </Link>
           </button>
+          </div>
         ) : (
           <ConnectButton style={styles.connectButton} />
         )}
@@ -32,22 +34,16 @@ export default Home;
 
 const styles = {
   div: {
-    height: "calc(100vh - 72px)",
-    display: "flex",
-    flexDirection: "column",
+    height: "calc(100vh - 128px)",
     alignItems: "center",
     justifyContent: "center",
+    padding: "10px 0px"
   },
   viewPostsButton: {
     padding: "10px 20px",
-    backgroundColor: "#000",
-    color: "#fff",
+    backgroundColor: "#FF8929",
     border: "none",
     borderRadius: "4px",
     cursor: "pointer",
-  },
-  viewPostsLink: {
-    color: "#fff",
-    textDecoration: "none",
   },
 };

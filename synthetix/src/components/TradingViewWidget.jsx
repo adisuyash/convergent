@@ -13,8 +13,8 @@ function TradingViewWidget() {
     script.async = true;
     script.innerHTML = `
       {
-        "width": "800",
-        "height": "700",
+        "width": "1100",
+        "height": "600",
         "symbol": "ETH",
         "interval": "D",
         "timezone": "Etc/UTC",
