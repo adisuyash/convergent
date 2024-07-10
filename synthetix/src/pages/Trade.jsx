@@ -3,12 +3,14 @@ import TradeHeader from "../components/TradeHeader";
 import Footer from "../components/Footer";
 import TradingViewWidget from '../components/TradingViewWidget';
 import Positions from '../components/Positions';
+import Orderbook from '../components/Orderbook';
+import BuyandSell from '../components/BuyandSell';
 import { useConnection } from "@arweave-wallet-kit/react";
 import { dryrun } from "@permaweb/aoconnect";
 
 const Mark = () => {
     const { connected } = useConnection();
-    const processId = "";
+    const processId = "PVU35t7MLuI_6f73ix-GWULD5qadJBEHIr3PV7Zj75k";
     const [isFetching, setIsFetching] = useState(false);
     const [markList, setMarkList] = useState([]);
     const [error, setError] = useState(null);
@@ -67,9 +69,11 @@ const Mark = () => {
                 )}
             </div>
             </main>
+            </div>
             <TradingViewWidget />
+            <Orderbook />
+            <BuyandSell />
             <Positions />
-        </div>
         <Footer />
       </div>
     );

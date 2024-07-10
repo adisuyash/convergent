@@ -4,7 +4,7 @@ import { dryrun } from "@permaweb/aoconnect";
 
 const DataDisplay = () => {
     const { connected } = useConnection();
-    const processId = "";
+    const processId = "PVU35t7MLuI_6f73ix-GWULD5qadJBEHIr3PV7Zj75k";
     const [isFetching, setIsFetching] = useState(false);
     const [data, setData] = useState([]);
     const [error, setError] = useState(null);

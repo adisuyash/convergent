@@ -1,0 +1,86 @@
+.buy-sell-component {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .order-type-toggle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex: 1;
+    font-size: 16px;
+    margin: 0 5px;
+  }
+  
+  button.buy {
+    background-color: #e6f4ea;
+    color: #1e8e3e;
+  }
+  
+  button.sell {
+    background-color: #fce8e6;
+    color: #d93025;
+  }
+  
+  button.active {
+    color: white;
+  }
+  
+  button.active.buy {
+    background-color: #1e8e3e;
+  }
+  
+  button.active.sell {
+    background-color: #d93025;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  .submit-button.buy {
+    background-color: white;
+  }
+  
+  .submit-button.sell {
+    background-color: white;
+  }

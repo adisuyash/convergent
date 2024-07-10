@@ -1,4 +1,3 @@
-import { ConnectButton } from "@arweave-wallet-kit/react";
 import { Link } from "react-router-dom";
 
 const Header = () => {

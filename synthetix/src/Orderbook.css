@@ -1,0 +1,46 @@
+.orderbook {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.orderbook-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-column {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.order-header, .order-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.order-header {
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+}
+
+.order-row span {
+  flex: 1;
+  text-align: right;
+}
+
+.ask {
+  color: #ff4136; /* Red for ask/sell orders */
+}
+
+.bid {
+  color: #2ecc40; /* Green for bid/buy orders */
+}
+
+.spread-display {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.2em;
+  font-weight: bold;
+}
