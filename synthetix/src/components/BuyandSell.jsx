@@ -62,7 +62,7 @@ function BuySellComponent() {
 
   return (
     <div className="buy-sell-component">
-      <h2>Place Order</h2>
+      <h2 className='font-bold text-3xl'>Place Order</h2>
       <div className="order-type-toggle">
         <button 
           className={orderType === 'buy_long' ? 'active buy' : 'buy'}

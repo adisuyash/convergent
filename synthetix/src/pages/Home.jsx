@@ -12,7 +12,7 @@ const Home = () => {
       <p className="text-3xl text-center mb-10"> Trade Perpetuals on Arweave</p>
 
         {connected ? (
-          <Link className ="my-5" to="/trade" style={styles.buttonLink}>
+          <Link className ="my-5 text-xl" to="/trade" style={styles.buttonLink}>
             Start Trading
           </Link>
         ) : (
@@ -46,7 +46,7 @@ const styles = {
     display: "inline-block",
     padding: "12px 24px",
     backgroundColor: "#FF8929",
-    color: "white",
+    color: "#16181D",
     textDecoration: "none",
     borderRadius: "4px",
     fontWeight: "bold",

@@ -73,18 +73,18 @@ function Orderbook() {
     }
 
     return (
-        <div className="orderbook">
-            <h2>Orderbook</h2>
-            <div className="orderbook-container">
+        <div className="orderbook p-5">
+            <h2 className='font-bold text-3xl'>Orderbook</h2>
+            <div className="orderbook-container flex">
                 <div className="order-column asks">
-                    <h3>Asks (Sell Orders)</h3>
-                    <div className="order-header">
+                    <h3 className='text-lg text-center'>Asks (Sell Orders)</h3>
+                    <div className="order-header flex gap-20">
                         <span>Price</span>
                         <span>Amount</span>
                         <span>Total</span>
                     </div>
                     {asks.map((order, index) => (
-                        <div key={index} className="order-row ask">
+                        <div key={index} className="order-row ask flex gap-20">
                             <span>{order.Price.toFixed(2)}</span>
                             <span>{order.Amount.toFixed(4)}</span>
                             <span>{(order.Price * order.Amount).toFixed(2)}</span>
@@ -92,17 +92,17 @@ function Orderbook() {
                     ))}
                 </div>
                 <div className="spread-display">
-                    <h3>Spread: {spread}</h3>
+                    <h3 className='text-lg text-center'>Spread: {spread}</h3>
                 </div>
                 <div className="order-column bids">
-                    <h3>Bids (Buy Orders)</h3>
-                    <div className="order-header">
+                    <h3 className='text-lg text-center'>Bids (Buy Orders)</h3>
+                    <div className="order-header flex gap-20">
                         <span>Price</span>
                         <span>Amount</span>
                         <span>Total</span>
                     </div>
                     {bids.map((order, index) => (
-                        <div key={index} className="order-row bid">
+                        <div key={index} className="order-row bid flex gap-20">
                             <span>{order.Price.toFixed(2)}</span>
                             <span>{order.Amount.toFixed(4)}</span>
                             <span>{(order.Price * order.Amount).toFixed(2)}</span>

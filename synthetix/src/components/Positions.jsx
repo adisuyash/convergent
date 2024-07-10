@@ -1,84 +1,127 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { useConnection } from "@arweave-wallet-kit/react";
 import { dryrun } from "@permaweb/aoconnect";
 import "../index.css";
 
 const DataDisplay = () => {
-    const { connected } = useConnection();
-    const processId = "PVU35t7MLuI_6f73ix-GWULD5qadJBEHIr3PV7Zj75k";
-    const [isFetching, setIsFetching] = useState(false);
-    const [data, setData] = useState([]);
-    const [error, setError] = useState(null);
+  const { connected } = useConnection();
+  const processId = "PVU35t7MLuI_6f73ix-GWULD5qadJBEHIr3PV7Zj75k";
+  const [isFetching, setIsFetching] = useState(false);
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
 
   const fetchData = async () => {
     if (!connected) {
-        return;
-      }
-  
-      try {
-        const result = await dryrun({
-          process: processId,
-          data: "",
-          tags: [
-            { name: "Action", value: "GetPositions" },
-          ],
-          anchor: "1234",
-        });
-        console.log("Positions: ", result)
-  
-        const filteredResult = result.Messages.map((message) => {
-          const parsedData = JSON.parse(message.Data);
-          return parsedData;
-        });
-        console.log("Positions Filtered result: ", filteredResult);
-        setData(filteredResult[0] || []);
-      } catch (error) {
-        console.error("Failed to fetch the data values", error);
-        setError("Failed to fetch the data values");
-      } finally {
-        setIsFetching(false);
-      }
-    };
-  
-    useEffect(() => {
-      setIsFetching(true);
-      fetchData();
-    }, [connected]);
+      return;
+    }
 
+    try {
+      const result = await dryrun({
+        process: processId,
+        data: "",
+        tags: [{ name: "Action", value: "GetPositions" }],
+        anchor: "1234",
+      });
+      console.log("Positions: ", result);
+
+      const filteredResult = result.Messages.map((message) => {
+        const parsedData = JSON.parse(message.Data);
+        return parsedData;
+      });
+      console.log("Positions Filtered result: ", filteredResult);
+      setData(filteredResult[0] || []);
+    } catch (error) {
+      console.error("Failed to fetch the data values", error);
+      setError("Failed to fetch the data values");
+    } finally {
+      setIsFetching(false);
+    }
+  };
+
+  useEffect(() => {
+    setIsFetching(true);
+    fetchData();
+  }, [connected]);
+  console.log("Data state:", data);
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Market</th>
-            <th>Side</th>
-            <th>Size</th>
-            <th>Avg. Entry</th>
-            <th>Market Price</th>
-            <th>Liq Price</th>
-            <th>uP&L</th>
-            <th>Funding</th>
-            <th>Realized P&L</th>
-          </tr>
-        </thead>
-        <tbody>
+    <div style={styles.container}>
+      {isFetching ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p style={styles.error}>{error}</p>
+      ) : (
+        <div style={styles.tableContainer}>
           {data.map((item, index) => (
-            <tr key={index}>
-              <td>AR</td>
-              <td>{item.Side}</td>
-              <td>{item.Amount}</td>
-              <td>{item.EntryPrice}</td>
-              <td>{item.IndexPrice}</td>
-              <td>{item.LiquidationPrice}</td>
-              <td>{item.uPL}</td>
-              <td>{item.FundingRate}</td>
-              <td>{item.realizedPL}</td>
-            </tr>
+            <div key={index} style={styles.row}>
+              <div style={styles.cell}>
+                <span style={styles.label}>Market</span>
+                <span style={styles.value}>{item.BaseCurrency}</span>
+              </div>
+              <div style={styles.cell}>
+                <span style={styles.label}>Side</span>
+                <span style={styles.value}>{item.Side}</span>
+              </div>
+              <div style={styles.cell}>
+                <span style={styles.label}>Size</span>
+                <span style={styles.value}>{item.Amount}</span>
+              </div>
+              <div style={styles.cell}>
+                <span style={styles.label}>Avg. Entry</span>
+                <span style={styles.value}>{item.EntryPrice}</span>
+              </div>
+              <div style={styles.cell}>
+                <span style={styles.label}>Market Price</span>
+                <span style={styles.value}>{item.IndexPrice}</span>
+              </div>
+              <div style={styles.cell}>
+                <span style={styles.label}>Liq Price</span>
+                <span style={styles.value}>{item.LiquidationPrice}</span>
+              </div>
+              <div style={styles.cell}>
+                <span style={styles.label}>Funding</span>
+                <span style={styles.value}>{item.FundingRate}</span>
+              </div>
+            </div>
           ))}
-        </tbody>
-      </table>
+        </div>
+      )}
     </div>
   );
-}
+};
+
+const styles = {
+  container: {
+    padding: "20px",
+    fontFamily: "Arial, sans-serif",
+  },
+  tableContainer: {
+    overflowX: "auto",
+  },
+  row: {
+    display: "flex",
+    borderBottom: "1px solid #e0e0e0",
+    padding: "10px 0",
+  },
+  cell: {
+    flex: "1 0 auto",
+    padding: "0 10px",
+    display: "flex",
+    flexDirection: "column",
+    minWidth: "100px",
+  },
+  label: {
+    fontSize: "12px",
+    color: "#666",
+    marginBottom: "5px",
+  },
+  value: {
+    fontSize: "14px",
+    fontWeight: "bold",
+  },
+  error: {
+    color: "red",
+    fontWeight: "bold",
+  },
+};
 
 export default DataDisplay;
