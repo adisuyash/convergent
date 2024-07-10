@@ -80,7 +80,7 @@ function BuySellComponent() {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="price">Price (USD):</label>
-          <input
+          <input className='text-[#16181D]'
             type="number"
             id="price"
             value={price}
@@ -92,7 +92,7 @@ function BuySellComponent() {
         </div>
         <div className="form-group">
           <label htmlFor="size">Size:</label>
-          <input
+          <input className='text-[#16181D]'
             type="number"
             id="size"
             value={size}

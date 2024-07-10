@@ -63,7 +63,7 @@ const Oracle = () => {
           </div>
         </main>
       </div>
-      <div className="flex gap-3">
+      <div className="flex gap-0">
         <TradingViewWidget />
         <Orderbook />
         <BuyandSell />
