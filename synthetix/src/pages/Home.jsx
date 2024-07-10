@@ -10,8 +10,8 @@ const Home = () => {
     <main>
       <HomeHeader />
       <div style={styles.div}>
-        <h2>Perpetuals on AO!</h2>
-            <p> Get ready to trade Perpetuals on Arweave!</p>
+        <h2>Convergent on AO!</h2>
+            <p> Get ready to trade synthetic assets using Convergent on Arweave!</p>
       {connected ? (
           <button style={styles.viewPostsButton}>
             <Link to="/trade" style={styles.viewPostsLink}>

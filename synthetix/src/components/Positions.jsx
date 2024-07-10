@@ -19,16 +19,17 @@ const DataDisplay = () => {
           process: processId,
           data: "",
           tags: [
-            { name: "Action", value: "" },
+            { name: "Action", value: "GetPositions" },
           ],
           anchor: "1234",
         });
+        console.log("Positions: ", result)
   
         const filteredResult = result.Messages.map((message) => {
           const parsedData = JSON.parse(message.Data);
           return parsedData;
         });
-        console.log("Filtered result", filteredResult);
+        console.log("Positions Filtered result: ", filteredResult);
         setData(filteredResult[0] || []);
       } catch (error) {
         console.error("Failed to fetch the data values", error);
@@ -57,23 +58,20 @@ const DataDisplay = () => {
             <th>uP&L</th>
             <th>Funding</th>
             <th>Realized P&L</th>
-            <th>TP/SL</th>
-
           </tr>
         </thead>
         <tbody>
           {data.map((item, index) => (
             <tr key={index}>
-              <td>{item.market}</td>
-              <td>{item.side}</td>
-              <td>{item.size}</td>
-              <td>{item.avgEntry}</td>
-              <td>{item.marketPrice}</td>
-              <td>{item.liqPrice}</td>
-              <td>{item.uP&L}</td>
-              <td>{item.funding}</td>
-              <td>{item.realizedP&L}</td>
-              <td>{item.tp/sl}</td>
+              <td>AR</td>
+              <td>{item.Side}</td>
+              <td>{item.Amount}</td>
+              <td>{item.EntryPrice}</td>
+              <td>{item.IndexPrice}</td>
+              <td>{item.LiquidationPrice}</td>
+              <td>{item.uPL}</td>
+              <td>{item.FundingRate}</td>
+              <td>{item.realizedPL}</td>
             </tr>
           ))}
         </tbody>

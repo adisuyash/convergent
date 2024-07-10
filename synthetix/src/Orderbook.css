@@ -25,9 +25,14 @@
   border-bottom: 1px solid #ccc;
 }
 
+.order-header span,
 .order-row span {
   flex: 1;
-  text-align: right;
+  text-align: center;
+}
+
+.order-row .price {
+  color: inherit;
 }
 
 .ask {

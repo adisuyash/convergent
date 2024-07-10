@@ -8,14 +8,14 @@ import BuyandSell from '../components/BuyandSell';
 import { useConnection } from "@arweave-wallet-kit/react";
 import { dryrun } from "@permaweb/aoconnect";
 
-const Mark = () => {
+const Oracle = () => {
     const { connected } = useConnection();
     const processId = "PVU35t7MLuI_6f73ix-GWULD5qadJBEHIr3PV7Zj75k";
     const [isFetching, setIsFetching] = useState(false);
-    const [markList, setMarkList] = useState([]);
+    const [oracleList, setOracleList] = useState([]);
     const [error, setError] = useState(null);
   
-    const syncMark = async () => {
+    const syncOracle = async () => {
       if (!connected) {
         return;
       }
@@ -25,20 +25,20 @@ const Mark = () => {
           process: processId,
           data: "",
           tags: [
-            { name: "Action", value: "" },
+            { name: "Action", value: "GetIndexPrice" },
           ],
           anchor: "1234",
         });
-  
+        console.log("Oracle: ", result)
         const filteredResult = result.Messages.map((message) => {
           const parsedData = JSON.parse(message.Data);
           return parsedData;
         });
-        console.log("Filtered result", filteredResult);
-        setMarkList(filteredResult[0] || []);
+        console.log("Oracle Filtered result: ", filteredResult);
+        setOracleList(filteredResult[0] || []);
       } catch (error) {
-        console.error("Failed to fetch the mark value", error);
-        setError("Failed to fetch the mark value");
+        console.error("Failed to fetch the oracle value", error);
+        setError("Failed to fetch the oracle value");
       } finally {
         setIsFetching(false);
       }
@@ -46,7 +46,7 @@ const Mark = () => {
   
     useEffect(() => {
       setIsFetching(true);
-      syncMark();
+      syncOracle();
     }, [connected]);
   
     return (
@@ -55,18 +55,14 @@ const Mark = () => {
             <TradeHeader />
             <main style={styles.container}>
             <div style={styles.parentDiv}>
-                <h2 style={styles.heading}>Mark</h2>
+                <h2 style={styles.heading}>Oracle</h2>
                 {isFetching && <p style={styles.message}>Loading...</p>}
                 {error && <p style={styles.errorText}>{error}</p>}
-                {!isFetching && markList.length > 0 && (
-                <ul style={styles.list}>
-                    {/* {markList.map((follower, index) => (
-                    <li key={index} style={styles.listItem}>
-                        {follower.FollowerPID}
-                    </li>
-                    ))} */} EDIT TO DISPLAY DATA
-                </ul>
-                )}
+                {!isFetching && oracleList.length > 0 && (
+                    oracleList.map((oracle, index) => (
+                    <p key={index}>{oracle.IndexPrice}</p>
+                    ))
+                )}           
             </div>
             </main>
             </div>
@@ -79,7 +75,7 @@ const Mark = () => {
     );
   };
     
-  export default Mark;
+  export default Oracle;
 
   const styles = {
     main: {

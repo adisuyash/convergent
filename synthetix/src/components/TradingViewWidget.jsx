@@ -15,7 +15,7 @@ function TradingViewWidget() {
       {
         "width": "800",
         "height": "700",
-        "symbol": "ETH",
+        "symbol": "PYTH:ARUSD",
         "interval": "D",
         "timezone": "Etc/UTC",
         "theme": "dark",

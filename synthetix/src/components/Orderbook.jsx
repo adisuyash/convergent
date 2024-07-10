@@ -14,7 +14,7 @@ function Orderbook() {
 
     const calculateSpread = (lowestAsk, highestBid) => {
         if (lowestAsk && highestBid) {
-            const spreadValue = lowestAsk.price - highestBid.price;
+            const spreadValue = lowestAsk.Price - highestBid.Price;
             setSpread(spreadValue.toFixed(2));
         }
     };
@@ -30,20 +30,22 @@ function Orderbook() {
                 process: processId,
                 data: "",
                 tags: [
-                    { name: "Action", value: "" },
+                    { name: "Action", value: "GetOrderbook" },
                 ],
                 anchor: "1234",
             });
 
+            console.log("Orderbook result: ", result)
+
             const filteredResult = result.Messages.map((message) => JSON.parse(message.Data));
-            console.log("Filtered result", filteredResult);
+            console.log("Orderbook Filtered result", filteredResult);
 
             const orderBookData = filteredResult[0] || [];
 
-            const askOrders = orderBookData.filter(order => order.type === 'ask')
-                                           .sort((a, b) => a.price - b.price);
-            const bidOrders = orderBookData.filter(order => order.type === 'bid')
-                                           .sort((a, b) => b.price - a.price);
+            const askOrders = orderBookData.filter(order => order.Side === 'Short')
+                .sort((a, b) => a.Price - b.Price);
+            const bidOrders = orderBookData.filter(order => order.Side === 'Long')
+                .sort((a, b) => b.Price - a.Price);
 
             setAsks(askOrders.slice(0, 10)); // Get top 10 ask orders
             setBids(bidOrders.slice(0, 10)); // Get top 10 bid orders
@@ -70,10 +72,6 @@ function Orderbook() {
         return <div>Error: {error}</div>;
     }
 
-    if (isFetching) {
-        return <div>Loading...</div>;
-    }
-
     return (
         <div className="orderbook">
             <h2>Orderbook</h2>
@@ -87,9 +85,9 @@ function Orderbook() {
                     </div>
                     {asks.map((order, index) => (
                         <div key={index} className="order-row ask">
-                            <span>{order.price.toFixed(2)}</span>
-                            <span>{order.amount.toFixed(4)}</span>
-                            <span>{(order.price * order.amount).toFixed(2)}</span>
+                            <span>{order.Price.toFixed(2)}</span>
+                            <span>{order.Amount.toFixed(4)}</span>
+                            <span>{(order.Price * order.Amount).toFixed(2)}</span>
                         </div>
                     ))}
                 </div>
@@ -105,9 +103,9 @@ function Orderbook() {
                     </div>
                     {bids.map((order, index) => (
                         <div key={index} className="order-row bid">
-                            <span>{order.price.toFixed(2)}</span>
-                            <span>{order.amount.toFixed(4)}</span>
-                            <span>{(order.price * order.amount).toFixed(2)}</span>
+                            <span>{order.Price.toFixed(2)}</span>
+                            <span>{order.Amount.toFixed(4)}</span>
+                            <span>{(order.Price * order.Amount).toFixed(2)}</span>
                         </div>
                     ))}
                 </div>
