@@ -16,7 +16,7 @@ const Home = () => {
             Start Trading
           </Link>
         ) : (
-          <ConnectButton style={styles.connectButton} />
+          <ConnectButton className ="my-5 text-xl" style={styles.connectButton} />
         )}
       </div>
     </main>
@@ -49,6 +49,16 @@ const styles = {
     color: "#16181D",
     textDecoration: "none",
     borderRadius: "4px",
+    fontWeight: "bold",
+    transition: "background-color 0.3s ease",
+  },
+  connectButton: {
+    display: "inline-block",
+    padding: "12px 24px",
+    backgroundColor: "#000",
+    color: "#D9D9D9",
+    textDecoration: "none",
+    borderRadius: "10px",
     fontWeight: "bold",
     transition: "background-color 0.3s ease",
   },
