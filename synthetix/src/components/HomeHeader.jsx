@@ -1,5 +1,6 @@
 import { ConnectButton } from "@arweave-wallet-kit/react";
 import { Link } from "react-router-dom";
+import "../index.css";
 
 const Header = () => {
   const navLinks = [
@@ -18,7 +19,7 @@ const Header = () => {
   ];
   
   return (
-    <header style={styles.header}>
+    <header className="font-['Inter']" style={styles.header}>
       <Link to="/" style={styles.title}>
         <h1 style={styles.logoText}>Perpetuals</h1>
       </Link>
@@ -42,13 +43,12 @@ const Header = () => {
 
 const styles = {
   header: {
-    backgroundColor: "#282c34",
+    backgroundColor: "#272A2F",
     padding: "10px 20px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
     boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-    color: "#fff",
   },
   title: {
     textDecoration: "none",
@@ -65,7 +65,7 @@ const styles = {
   },
   nav: {
     textDecoration: "none",
-    color: "#61dafb",
+    color: "#D9D9D9",
     margin: "0 15px",
     fontSize: "18px",
     fontWeight: "500",

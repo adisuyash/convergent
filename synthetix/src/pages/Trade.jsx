@@ -79,7 +79,7 @@ const Mark = () => {
 
   const styles = {
     main: {
-      backgroundColor: "#f0f4f8",
+      backgroundColor: "#16181D",
       height: "100vh",
       display: "flex",
       flexDirection: "column",

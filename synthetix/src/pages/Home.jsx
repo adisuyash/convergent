@@ -2,6 +2,7 @@ import { ConnectButton, useConnection } from "@arweave-wallet-kit/react";
 import HomeHeader from "../components/HomeHeader";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import "../index.css";
 
 const Home = () => {
   const { connected } = useConnection();
@@ -9,12 +10,12 @@ const Home = () => {
   return (
     <main>
       <HomeHeader />
-      <div style={styles.div}>
+      <div className="text-[#D9D9D9] font-['Inter']" style={styles.div}>
         <h2>Perpetuals on AO!</h2>
-            <p> Get ready to trade Perpetuals on Arweave!</p>
-      {connected ? (
+        <p> Get ready to trade Perpetuals on Arweave!</p>
+        {connected ? (
           <button style={styles.viewPostsButton}>
-            <Link to="/trade" style={styles.viewPostsLink}>
+            <Link className="font-['Inter'] bg-[]" to="/trade" style={styles.viewPostsLink}>
               Start Trading
             </Link>
           </button>
