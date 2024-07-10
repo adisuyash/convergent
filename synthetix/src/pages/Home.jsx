@@ -8,21 +8,18 @@ const Home = () => {
   return (
     <main>
       <div style={styles.div}>
-        <h2>Convergent on AO!</h2>
-        <p> Get ready to trade synthetic assets using Convergent on Arweave!</p>
+      <h2 className="text-7xl font-bold">Convergent</h2>
+      <p className="text-3xl text-center mb-10"> Trade Perpetuals on Arweave</p>
+
         {connected ? (
-          <button style={styles.viewPostsButton}>
-            <Link to="/trade" style={styles.viewPostsLink}>
-              Start Trading
-            </Link>
-          </button>)
-          :
-     (
-      <ConnectButton style={styles.connectButton} />
-      )
-      }
-    </div>
-    </main >
+          <Link className ="my-5" to="/trade" style={styles.buttonLink}>
+            Start Trading
+          </Link>
+        ) : (
+          <ConnectButton style={styles.connectButton} />
+        )}
+      </div>
+    </main>
   );
 };
 
@@ -31,15 +28,28 @@ export default Home;
 const styles = {
   div: {
     height: "calc(100vh - 128px)",
+    display: "flex",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    padding: "10px 0px"
+    padding: "20px",
+    textAlign: "center",
   },
-  viewPostsButton: {
-    padding: "10px 20px",
+  heading: {
+    marginBottom: "20px",
+  },
+  paragraph: {
+    marginBottom: "30px",
+    maxWidth: "600px",
+  },
+  buttonLink: {
+    display: "inline-block",
+    padding: "12px 24px",
     backgroundColor: "#FF8929",
-    border: "none",
+    color: "white",
+    textDecoration: "none",
     borderRadius: "4px",
-    cursor: "pointer",
+    fontWeight: "bold",
+    transition: "background-color 0.3s ease",
   },
 };
