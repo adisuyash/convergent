@@ -2,34 +2,12 @@ import { ConnectButton } from "@arweave-wallet-kit/react";
 import { Link } from "react-router-dom";
 import "../index.css";
 
-const Header = () => {
-  const navLinks = [
-    {
-      title: "Perpetual",
-      path: "/trade",
-    },
-    {
-        title: "Dashboard",
-        path: "/trade",
-    },
-    {
-        title: "Market Place",
-        path: "/trade",
-    },
-  ];
-  
+const Header = () => {  
   return (
     <header className="font-['Inter']" style={styles.header}>
       <Link to="/" style={styles.title}>
-        <h1 style={styles.logoText}>Perpetuals</h1>
+        <h1 style={styles.logoText}>Convergent</h1>
       </Link>
-      <nav style={styles.navContainer}>
-        {navLinks.map((link) => (
-          <Link key={link.title} to={link.path} style={styles.nav}>
-            {link.title}
-          </Link>
-        ))}
-      </nav>
       <div style={styles.connectButtonContainer}>
         <ConnectButton
           profileModal={true}

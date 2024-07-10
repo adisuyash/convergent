@@ -1,6 +1,4 @@
 import { ConnectButton, useConnection } from "@arweave-wallet-kit/react";
-import HomeHeader from "../components/HomeHeader";
-import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import "../index.css";
 
@@ -9,7 +7,6 @@ const Home = () => {
 
   return (
     <main>
-      <HomeHeader />
       <div style={styles.div}>
         <h2>Convergent on AO!</h2>
         <p> Get ready to trade synthetic assets using Convergent on Arweave!</p>
@@ -24,7 +21,7 @@ const Home = () => {
       <ConnectButton style={styles.connectButton} />
       )
       }
-    </div><Footer />
+    </div>
     </main >
   );
 };

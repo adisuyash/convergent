@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import TradeHeader from "../components/TradeHeader";
-import Footer from "../components/Footer";
 import TradingViewWidget from "../components/TradingViewWidget";
 import Positions from "../components/Positions";
 import Orderbook from "../components/Orderbook";
@@ -70,7 +69,6 @@ const Oracle = () => {
             <Orderbook />
             <BuyandSell />
             <Positions />
-        <Footer />
       </div>
     );
   };
