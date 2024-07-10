@@ -1,6 +1,6 @@
 .orderbook {
-  font-family: Arial, sans-serif;
-  max-width: 800px;
+  font-family: "Inter", sans-serif;
+  max-width: 200px;
   margin: 0 auto;
 }
 
@@ -27,12 +27,17 @@
 
 .order-header span,
 .order-row span {
+<<<<<<< HEAD
   flex: 1;
   text-align: center;
 }
 
 .order-row .price {
   color: inherit;
+=======
+  flex: auto;
+  text-align: right;
+>>>>>>> ba80235a53c94463785be36268936f0a9d3e85d9
 }
 
 .ask {

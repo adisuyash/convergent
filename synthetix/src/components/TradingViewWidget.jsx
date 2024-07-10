@@ -13,9 +13,15 @@ function TradingViewWidget() {
     script.async = true;
     script.innerHTML = `
       {
+<<<<<<< HEAD
         "width": "800",
         "height": "700",
         "symbol": "PYTH:ARUSD",
+=======
+        "width": "1100",
+        "height": "600",
+        "symbol": "ETH",
+>>>>>>> ba80235a53c94463785be36268936f0a9d3e85d9
         "interval": "D",
         "timezone": "Etc/UTC",
         "theme": "dark",

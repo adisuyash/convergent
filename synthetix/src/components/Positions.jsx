@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useConnection } from "@arweave-wallet-kit/react";
 import { dryrun } from "@permaweb/aoconnect";
+import "../index.css";
 
 const DataDisplay = () => {
     const { connected } = useConnection();
