@@ -10,32 +10,22 @@ const Home = () => {
   return (
     <main>
       <HomeHeader />
-<<<<<<< HEAD
       <div style={styles.div}>
         <h2>Convergent on AO!</h2>
-            <p> Get ready to trade synthetic assets using Convergent on Arweave!</p>
-      {connected ? (
+        <p> Get ready to trade synthetic assets using Convergent on Arweave!</p>
+        {connected ? (
           <button style={styles.viewPostsButton}>
             <Link to="/trade" style={styles.viewPostsLink}>
-=======
-      <div className="place-content-center text-[#D9D9D9] font-['Inter']" style={styles.div}>
-        <h2 className="grid-item">Perpetuals on AO!</h2>
-        <p className="paragraph grid-item">Get ready to trade Perpetuals on Arweave!</p>
-        {connected ? (
-          <div>
-            <button className="start-trade grid-item" style={styles.viewPostsButton}>
-            <Link className="text-[#16181D] font-medium" to="/trade" style={styles.viewPostsLink}>
->>>>>>> ba80235a53c94463785be36268936f0a9d3e85d9
               Start Trading
             </Link>
-          </button>
-          </div>
-        ) : (
-          <ConnectButton style={styles.connectButton} />
-        )}
-      </div>
-      <Footer />
-    </main>
+          </button>)
+          :
+     (
+      <ConnectButton style={styles.connectButton} />
+      )
+      }
+    </div><Footer />
+    </main >
   );
 };
 
