@@ -15,8 +15,9 @@ const Home = () => {
           <Link className ="my-5 text-xl" to="/trade" style={styles.buttonLink}>
             Start Trading
           </Link>
-        ) : (
-          <ConnectButton className ="my-5 text-xl" style={styles.connectButton} />
+        ) : (<p className ="text-xl">
+          <ConnectButton style={styles.connectButton} />
+          </p>
         )}
       </div>
     </main>
@@ -48,17 +49,17 @@ const styles = {
     backgroundColor: "#FF8929",
     color: "#16181D",
     textDecoration: "none",
-    borderRadius: "4px",
+    borderRadius: "40px",
     fontWeight: "bold",
     transition: "background-color 0.3s ease",
   },
   connectButton: {
     display: "inline-block",
     padding: "12px 24px",
-    backgroundColor: "#000",
-    color: "#D9D9D9",
+    backgroundColor: "#FF8929",
+    color: "#16181D",
     textDecoration: "none",
-    borderRadius: "10px",
+    borderRadius: "40px",
     fontWeight: "bold",
     transition: "background-color 0.3s ease",
   },
