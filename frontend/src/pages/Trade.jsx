@@ -51,15 +51,25 @@ const Oracle = () => {
       <div style={styles.main}>
         <TradeHeader />
         <main style={styles.container}>
-          <div style={styles.parentDiv}>
-            <h2 style={styles.heading}>Oracle</h2>
-            {isFetching && <p style={styles.message}>Loading...</p>}
-            {error && <p style={styles.errorText}>{error}</p>}
-            {!isFetching &&
-              oracleList.length > 0 &&
-              oracleList.map((oracle, index) => (
-                <p className="text-center" key={index}>{oracle.IndexPrice}</p>
-              ))}
+          <div
+            style={{
+              border: "1px solid white",
+              padding: "10px",
+              margin: "10px",
+            }}
+          >
+            <div style={styles.parentDiv}>
+              <h2 style={styles.heading}>Oracle Price</h2>
+              {isFetching && <p style={styles.message}>Loading...</p>}
+              {error && <p style={styles.errorText}>{error}</p>}
+              {!isFetching &&
+                oracleList.length > 0 &&
+                oracleList.map((oracle, index) => (
+                  <p className="text-center" key={index}>
+                    ${oracle.IndexPrice}
+                  </p>
+                ))}
+            </div>
           </div>
         </main>
       </div>
@@ -68,7 +78,7 @@ const Oracle = () => {
         <Orderbook />
         <BuyandSell />
       </div>
-        <Positions />
+      <Positions />
     </div>
   );
 };

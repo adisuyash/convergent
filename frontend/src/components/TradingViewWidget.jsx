@@ -13,7 +13,7 @@ function TradingViewWidget() {
     script.async = true;
     script.innerHTML = `
       {
-        "width": "1100",
+        "width": "500",
         "height": "600",
         "symbol": "PYTH:ARUSD",
         "interval": "D",
@@ -21,7 +21,7 @@ function TradingViewWidget() {
         "theme": "dark",
         "style": "1",
         "locale": "en",
-        "allow_symbol_change": true,
+        "allow_symbol_change": false,
         "calendar": false,
         "support_host": "https://www.tradingview.com"
       }`;

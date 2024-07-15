@@ -45,6 +45,7 @@ const DataDisplay = () => {
   console.log("Data state:", data);
   return (
     <div style={styles.container}>
+      <h1>Positions</h1>
       {isFetching ? (
         <p>Loading...</p>
       ) : error ? (

@@ -1,16 +1,16 @@
 # Convergent
-Convergent is a cutting-edge project that aims to create synthetic assets that mimic the price of another asset without ever holding the actual asset. <br>
+Convergent is a decentralised perpetual exchange on Arweave/AO that aims to create synthetic assets that mimic the price of another asset without ever holding the actual asset. <br>
 This innovation allows users to gain exposure to various assets without the need to physically own them, providing a seamless and efficient way to diversify and manage investments.
 
 ## Project Structure
 The project is divided into two main parts:
 
 ### Frontend
-The frontend source code is located in the Synthetix folder in our GitHub repository. This section handles the user interface and interactions, providing a smooth and intuitive experience for users.
+The frontend source code is located in the `frontend` folder in our GitHub repository. This section handles the user interface and interactions, providing a smooth and intuitive experience for users.
 
 #### Folder Structure
 ```
-/Synthetix
+/frontend
   ├── public
   ├── src
   ├── package.json
@@ -18,7 +18,7 @@ The frontend source code is located in the Synthetix folder in our GitHub reposi
   └── ... (other necessary files and folders)
 ```
 ### Backend
-The backend code, which handles Convergent's core logic and data processing, is hosted on the BetterIDEA.
+The backend code, which handles Convergent's core logic and data processing, is hosted on the BetterIDEA. The current file is provided in the `backend` folder in our GitHub repository.
 
 **Backend Code Link:** [Convergent Backend on BetterIDEA](https://ide.betteridea.dev/import?id=PVU35t7MLuI_6f73ix-GWULD5qadJBEHIr3PV7Zj75k)
 
@@ -28,8 +28,8 @@ To get started with the Convergent project, follow these steps:
 ### Clone the repository:
 ```
 
-git clone https://github.com/adisuyash/arweave-hh-frontend.git
-cd arweave-hh-frontend/synthetix
+git clone https://github.com/adisuyash/convergent
+cd arweave-hh-frontend/frontend
 
 ```
 

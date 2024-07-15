@@ -54,6 +54,8 @@ function Orderbook() {
                 calculateSpread(askOrders[0], bidOrders[0]);
             }
 
+            setAsks(askOrders.sort((a, b) => b.Price - a.Price).slice(0, 10)); // Get top 10 ask orders
+
         } catch (error) {
             console.error("Failed to fetch the orderbook data", error);
             setError("Failed to fetch the orderbook data");
