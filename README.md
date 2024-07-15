@@ -20,7 +20,7 @@ The frontend source code is in the `frontend` folder in our GitHub repository. T
 ### Backend
 The backend code, which handles Convergent's core logic and data processing, is hosted on the BetterIDEA. The current file is provided in the `backend` folder in our GitHub repository.
 
-**Backend Code Link:** [Convergent Backend on BetterIDEA](https://ide.betteridea.dev/import?id=PVU35t7MLuI_6f73ix-GWULD5qadJBEHIr3PV7Zj75k "Title" target="_blank")
+**Backend Code Link:** [Convergent Backend on BetterIDEA](https://ide.betteridea.dev/import?id=PVU35t7MLuI_6f73ix-GWULD5qadJBEHIr3PV7Zj75k)
 
 ## Getting Started
 To get started with the Convergent project, follow these steps:
