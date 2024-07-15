@@ -16,7 +16,7 @@ function TradingViewWidget() {
         "width": "500",
         "height": "600",
         "symbol": "PYTH:ARUSD",
-        "interval": "D",
+        "interval": "1",
         "timezone": "Etc/UTC",
         "theme": "dark",
         "style": "1",
