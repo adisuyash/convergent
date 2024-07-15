@@ -2,6 +2,8 @@
 Convergent is a decentralized perpetual exchange on Arweave/AO that aims to create synthetic assets that mimic the price of another asset without ever holding the actual asset. <br>
 This innovation allows users to gain exposure to various assets without the need to physically own them, providing a seamless and efficient way to diversify and manage investments.
 
+#### Live Deployment on Vercel: https://convergent.vercel.app
+
 ## Project Structure
 The project is divided into two main parts:
 
@@ -47,3 +49,7 @@ npm install
 npm run dev
 
 ```
+
+<hr>
+
+[![protocol.land](https://arweave.net/eZp8gOeR8Yl_cyH9jJToaCrt2He1PHr0pR4o-mHbEcY)](https://protocol.land/#/repository/6abe06ce-e362-45c6-aae6-b78cd6a13229)
