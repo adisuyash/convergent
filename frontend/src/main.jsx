@@ -31,6 +31,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         ensurePermissions: true,
         strategies: [new ArConnectStrategy()],
       }}
+      theme={{
+        accent: { r: 0, g: 0, b: 0 },
+        displayTheme: "dark"
+      }}
     >
       <RouterProvider router={router} />
     </ArweaveWalletKit>
