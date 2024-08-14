@@ -1,47 +1,93 @@
 .orderbook {
-  font-family: "Inter", sans-serif;
-  max-width: 200px;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #1e1e1e;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
   margin: 0 auto;
 }
 
-.orderbook-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.order-column {
-  width: 100%;
+.order-title {
+  font-size: 24px;
+  font-weight: bold;
   margin-bottom: 20px;
 }
 
-.order-header, .order-row {
+.orderbook-container {
+  border: 1px solid #333;
+  border-radius: 5px;
+  overflow: hidden;
   display: flex;
-  justify-content: space-between;
-  padding: 5px 0;
+  flex-direction: column;
+  height: 600px;
+}
+
+.order-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  height: calc(50% - 20px);
 }
 
 .order-header {
-  font-weight: bold;
-  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
-.order-header span,
-.order-row span {
-  flex: auto;
-  text-align: right;
+.order-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 20px;
+  height: 30px;
 }
 
 .ask {
-  color: #ff4136; /* Red for ask/sell orders */
+  color: #ED7088;
 }
 
 .bid {
-  color: #2ecc40; /* Green for bid/buy orders */
+  color: #50D2C1;
 }
 
 .spread-display {
-  text-align: center;
-  margin: 20px 0;
-  font-size: 1.2em;
-  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
+
+.order-header span,
+.order-row span,
+.spread-display span {
+  font-size: 14px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.order-header span:first-child,
+.order-row span:first-child {
+  text-align: left;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.order-header span:last-child,
+.order-row span:last-child {
+  padding-right: 0;
+}
+
+.order-row:hover {
+  background-color: #2a2a2a;
+}
+
+* {
+  box-sizing: border-box;
 }

@@ -2,12 +2,23 @@ import { ConnectButton } from "@arweave-wallet-kit/react";
 import { Link } from "react-router-dom";
 import "../index.css";
 
-const Header = () => {  
+const Header = () => {
   return (
     <header className="font-['Inter']" style={styles.header}>
-      <Link to="/" style={styles.title}>
-        <h1 style={styles.logoText}>Convergent</h1>
-      </Link>
+      <div style={styles.leftSection}>
+        <Link to="/" style={styles.title}>
+          <h1 style={styles.logoText}>Convergent</h1>
+        </Link>
+        <nav style={styles.navigation}>
+          <Link to="/trade" style={styles.navLink}>Trade</Link>
+          <Link to="/vaults" style={styles.navLink}>Vaults</Link>
+          <Link to="/portfolio" style={styles.navLink}>Portfolio</Link>
+          <Link to="/referral" style={styles.navLink}>Referral</Link>
+          <Link to="/points" style={styles.navLink}>Points</Link>
+          <Link to="/Leaderboard" style={styles.navLink}>Leaderboard</Link>
+          <Link to="/more" style={styles.navLink}>More</Link>
+        </nav>
+      </div>
       <div style={styles.connectButtonContainer}>
         <ConnectButton
           profileModal={true}
@@ -34,24 +45,28 @@ const styles = {
   },
   logoText: {
     margin: 0,
-    fontSize: "24px",
+    fontSize: "40px",
     fontWeight: "bold",
-  },
-  navContainer: {
-    display: "flex",
-    alignItems: "center",
-  },
-  nav: {
-    textDecoration: "none",
-    color: "#D9D9D9",
-    margin: "0 15px",
-    fontWeight: "500",
-    fontSize: "18px",
-    transition: "color 0.3s",
   },
   connectButtonContainer: {
     display: "flex",
     alignItems: "center",
+  },
+  leftSection: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  navigation: {
+    display: 'flex',
+    alignItems: 'center',
+    marginLeft: '5rem',
+  },
+  navLink: {
+    textDecoration: 'none',
+    color: '#FFFFFF',
+    marginRight: '4rem',
+    fontSize: '1.3rem',
+    lineHeight: 1,
   },
 };
 

@@ -45,7 +45,7 @@ const DataDisplay = () => {
   console.log("Data state:", data);
   return (
     <div style={styles.container}>
-      <h1>Positions</h1>
+      <h1 style={styles.h1}>Positions</h1>
       {isFetching ? (
         <p>Loading...</p>
       ) : error ? (
@@ -100,7 +100,6 @@ const styles = {
   },
   row: {
     display: "flex",
-    borderBottom: "1px solid #e0e0e0",
     padding: "10px 0",
   },
   cell: {
@@ -122,6 +121,10 @@ const styles = {
   error: {
     color: "red",
     fontWeight: "bold",
+  },
+  h1: {
+    fontSize: "30px",
+    borderBottom: "1px solid #FFFFFF",
   },
 };
 
