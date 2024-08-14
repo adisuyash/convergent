@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, memo } from 'react';
+import React, { useEffect, useRef, memo } from "react";
 
 function TradingViewWidget() {
   const container = useRef();
@@ -8,7 +8,8 @@ function TradingViewWidget() {
     if (scriptLoaded.current) return;
 
     const script = document.createElement("script");
-    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
     script.type = "text/javascript";
     script.async = true;
     script.innerHTML = `
@@ -25,7 +26,7 @@ function TradingViewWidget() {
         "calendar": false,
         "support_host": "https://www.tradingview.com"
       }`;
-    
+
     container.current.appendChild(script);
     scriptLoaded.current = true;
 

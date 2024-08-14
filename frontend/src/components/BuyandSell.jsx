@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import '../BuySellComponent.css';
+import React, { useState } from "react";
+import "../BuySellComponent.css";
 import { message } from "@permaweb/aoconnect";
 import { useConnection } from "@arweave-wallet-kit/react";
 import { createDataItemSigner } from "@permaweb/aoconnect";
 
 function BuySellComponent() {
-  const [orderType, setOrderType] = useState('buy_long');
+  const [orderType, setOrderType] = useState("buy_long");
   const processId = "PVU35t7MLuI_6f73ix-GWULD5qadJBEHIr3PV7Zj75k";
-  const [price, setPrice] = useState('');
-  const [size, setSize] = useState('');
+  const [price, setPrice] = useState("");
+  const [size, setSize] = useState("");
   const [leverage, setLeverage] = useState(1);
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState("");
   const { connected } = useConnection();
 
   const submitOrderToBackend = async (orderDetails) => {
     try {
-      const side = orderType === 'buy_long' ? 'Long' : 'Short';
+      const side = orderType === "buy_long" ? "Long" : "Short";
 
       const res = await message({
         process: processId,
@@ -27,7 +27,7 @@ function BuySellComponent() {
           { name: "Side", value: side },
           { name: "Amount", value: orderDetails.size.toString() },
           { name: "Price", value: orderDetails.price.toString() },
-          { name: "Leverage", value: orderDetails.leverage.toString() }
+          { name: "Leverage", value: orderDetails.leverage.toString() },
         ],
         data: JSON.stringify(orderDetails),
       });
@@ -51,11 +51,13 @@ function BuySellComponent() {
       const result = await submitOrderToBackend(orderDetails);
       setStatus(result);
     } catch (error) {
-      setStatus(`Failed to place ${orderType === 'buy_long' ? 'buy' : 'sell'} order`);
+      setStatus(
+        `Failed to place ${orderType === "buy_long" ? "buy" : "sell"} order`,
+      );
     }
 
-    setPrice('');
-    setSize('');
+    setPrice("");
+    setSize("");
     setLeverage(1);
   };
 
@@ -64,14 +66,14 @@ function BuySellComponent() {
       <h2 className="order-title">Place Order</h2>
       <div className="order-type-toggle">
         <button
-          className={`toggle-button ${orderType === 'buy_long' ? 'active buy' : ''}`}
-          onClick={() => setOrderType('buy_long')}
+          className={`toggle-button ${orderType === "buy_long" ? "active buy" : ""}`}
+          onClick={() => setOrderType("buy_long")}
         >
           Buy / Long
         </button>
         <button
-          className={`toggle-button ${orderType === 'sell_short' ? 'active sell' : ''}`}
-          onClick={() => setOrderType('sell_short')}
+          className={`toggle-button ${orderType === "sell_short" ? "active sell" : ""}`}
+          onClick={() => setOrderType("sell_short")}
         >
           Sell / Short
         </button>
@@ -87,7 +89,7 @@ function BuySellComponent() {
             required
             min="0"
             step="0.01"
-            placeholder={`Enter ${orderType === 'buy_long' ? 'Buying' : 'Selling'} Price`}
+            placeholder={`Enter ${orderType === "buy_long" ? "Buying" : "Selling"} Price`}
             className="form-input"
           />
         </div>
@@ -101,7 +103,7 @@ function BuySellComponent() {
             required
             min="0"
             step="0.0001"
-            placeholder={`Enter Amount To ${orderType === 'buy_long' ? 'Buy' : 'Sell'}`}
+            placeholder={`Enter Amount To ${orderType === "buy_long" ? "Buy" : "Sell"}`}
             className="form-input"
           />
         </div>
@@ -120,9 +122,9 @@ function BuySellComponent() {
         </div>
         <button
           type="submit"
-          className={`submit-button ${orderType === 'buy_long' ? 'buy' : 'sell'}`}
+          className={`submit-button ${orderType === "buy_long" ? "buy" : "sell"}`}
         >
-          {orderType === 'buy_long' ? 'Buy / Long' : 'Sell / Short'}
+          {orderType === "buy_long" ? "Buy / Long" : "Sell / Short"}
         </button>
       </form>
       {status && <p className="status-message">{status}</p>}

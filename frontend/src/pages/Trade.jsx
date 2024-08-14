@@ -91,7 +91,7 @@ const Values = () => {
             </div>
           )}
         </div>
-      </main >
+      </main>
       <div className="flex gap-5">
         <div className="flex-[3]">
           <TradingViewWidget />
@@ -106,46 +106,45 @@ const Values = () => {
 
       <Positions />
     </div>
-
   );
 };
 
 const styles = {
   marketDataGrid: {
-    display: 'flex',
-    flexDirection: 'column',
-    backgroundColor: '#2C2C2C',
-    padding: '10px',
-    color: 'white',
-    border: '1px solid #444',
-    borderRadius: '4px',
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "#2C2C2C",
+    padding: "10px",
+    color: "white",
+    border: "1px solid #444",
+    borderRadius: "4px",
   },
   marketDataRow: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
   },
   cell: {
-    flex: '1',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    padding: '0 10px',
+    flex: "1",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    padding: "0 10px",
   },
   label: {
-    fontSize: '12px',
-    color: '#888',
-    marginBottom: '5px',
+    fontSize: "12px",
+    color: "#888",
+    marginBottom: "5px",
   },
   currency: {
-    fontSize: '20px',
-    color: '#FFF',
-    marginBottom: '5px',
+    fontSize: "20px",
+    color: "#FFF",
+    marginBottom: "5px",
   },
   value: {
-    fontSize: '14px',
-    fontWeight: 'bold',
+    fontSize: "14px",
+    fontWeight: "bold",
   },
 };
 

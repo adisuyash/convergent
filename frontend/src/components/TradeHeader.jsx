@@ -10,13 +10,27 @@ const Header = () => {
           <h1 style={styles.logoText}>Convergent</h1>
         </Link>
         <nav style={styles.navigation}>
-          <Link to="/trade" style={styles.navLink}>Trade</Link>
-          <Link to="/vaults" style={styles.navLink}>Vaults</Link>
-          <Link to="/portfolio" style={styles.navLink}>Portfolio</Link>
-          <Link to="/referral" style={styles.navLink}>Referral</Link>
-          <Link to="/points" style={styles.navLink}>Points</Link>
-          <Link to="/Leaderboard" style={styles.navLink}>Leaderboard</Link>
-          <Link to="/more" style={styles.navLink}>More</Link>
+          <Link to="/trade" style={styles.navLink}>
+            Trade
+          </Link>
+          <Link to="/vaults" style={styles.navLink}>
+            Vaults
+          </Link>
+          <Link to="/portfolio" style={styles.navLink}>
+            Portfolio
+          </Link>
+          <Link to="/referral" style={styles.navLink}>
+            Referral
+          </Link>
+          <Link to="/points" style={styles.navLink}>
+            Points
+          </Link>
+          <Link to="/Leaderboard" style={styles.navLink}>
+            Leaderboard
+          </Link>
+          <Link to="/more" style={styles.navLink}>
+            More
+          </Link>
         </nav>
       </div>
       <div style={styles.connectButtonContainer}>
@@ -53,19 +67,19 @@ const styles = {
     alignItems: "center",
   },
   leftSection: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
   },
   navigation: {
-    display: 'flex',
-    alignItems: 'center',
-    marginLeft: '5rem',
+    display: "flex",
+    alignItems: "center",
+    marginLeft: "5rem",
   },
   navLink: {
-    textDecoration: 'none',
-    color: '#FFFFFF',
-    marginRight: '4rem',
-    fontSize: '1.3rem',
+    textDecoration: "none",
+    color: "#FFFFFF",
+    marginRight: "4rem",
+    fontSize: "1.3rem",
     lineHeight: 1,
   },
 };
