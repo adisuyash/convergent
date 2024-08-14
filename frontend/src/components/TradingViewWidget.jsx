@@ -13,8 +13,8 @@ function TradingViewWidget() {
     script.async = true;
     script.innerHTML = `
       {
-        "width": "500",
-        "height": "600",
+        "width": "1200",
+        "height": "735",
         "symbol": "PYTH:ARUSD",
         "interval": "1",
         "timezone": "Etc/UTC",
