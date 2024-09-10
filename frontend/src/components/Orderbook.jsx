@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import '../Orderbook.css';
 import { useConnection } from "@arweave-wallet-kit/react";
 import { dryrun } from "@permaweb/aoconnect";
@@ -19,7 +19,7 @@ function Orderbook() {
         }
     };
 
-    const fetchOrderbookData = async () => {
+    const fetchOrderbookData = useCallback(async () => {
         if (!connected) {
             return;
         }
@@ -54,21 +54,19 @@ function Orderbook() {
                 calculateSpread(askOrders[0], bidOrders[0]);
             }
 
-            setAsks(askOrders.sort((a, b) => b.Price - a.Price).slice(0, 10)); // Get top 10 ask orders
-
         } catch (error) {
             console.error("Failed to fetch the orderbook data", error);
             setError("Failed to fetch the orderbook data");
         } finally {
             setIsFetching(false);
         }
-    };
+    }, [connected, processId]);
 
     useEffect(() => {
         if (connected) {
             fetchOrderbookData();
         }
-    }, [connected]);
+    }, [connected, fetchOrderbookData]);
 
     if (error) {
         return <div>Error: {error}</div>;

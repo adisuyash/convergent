@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, memo } from 'react';
+import { useEffect, useRef, memo } from 'react';
 
 function TradingViewWidget() {
   const container = useRef();
@@ -13,7 +13,6 @@ function TradingViewWidget() {
     script.async = true;
     script.innerHTML = `
       {
-        "width": "1200",
         "height": "735",
         "symbol": "PYTH:ARUSD",
         "interval": "1",

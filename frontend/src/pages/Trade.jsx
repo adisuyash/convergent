@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import TradeHeader from "../components/TradeHeader";
 import TradingViewWidget from "../components/TradingViewWidget";
 import Positions from "../components/Positions";
@@ -14,7 +14,7 @@ const Values = () => {
   const [valueList, setValueList] = useState([]);
   const [error, setError] = useState(null);
 
-  const syncValue = async () => {
+  const syncValue = useCallback(async () => {
     if (!connected) {
       return;
     }
@@ -39,12 +39,12 @@ const Values = () => {
     } finally {
       setIsFetching(false);
     }
-  };
+  }, [connected, processId]);
 
   useEffect(() => {
     setIsFetching(true);
     syncValue();
-  }, [connected]);
+  }, [connected, syncValue]);
 
   return (
     <div style={styles.mainContainer}>
@@ -60,15 +60,38 @@ const Values = () => {
               {valueList.map((item, index) => (
                 <div key={index} style={styles.marketDataRow}>
                   <div style={styles.cell}>
-                    <span style={styles.currency}>CRYPTO SYMBOL</span>
+                    <span style={styles.currency}>ARWEAVE / USD</span>
                   </div>
                   <div style={styles.cell}>
-                    <span style={styles.label}>Mark</span>
+                    <span style={styles.label}>Oracle Price</span>
+                    <span style={styles.value}>{item.IndexPrice}</span>
+                  </div>
+
+                  {/* To add the below mentioned details like Mark, 24hr change, Funding etc afterwards */}
+                  <div style={styles.cell}>
+                    <span style={styles.label}></span>
                     <span style={styles.value}>{item.Mark}</span>
                   </div>
                   <div style={styles.cell}>
-                    <span style={styles.label}>Oracle</span>
-                    <span style={styles.value}>{item.IndexPrice}</span>
+                    <span style={styles.label}></span>
+                    <span style={styles.value}>{item.Change}</span>
+                  </div>
+                  <div style={styles.cell}>
+                    <span style={styles.label}></span>
+                    <span style={styles.value}>{item.Volume}</span>
+                  </div>
+                  <div style={styles.cell}>
+                    <span style={styles.label}></span>
+                    <span style={styles.value}>{item.Interest}</span>
+                  </div>
+                  <div style={styles.cell}>
+                    <span style={styles.label}></span>
+                    <span style={styles.value}>{item.Funding}</span>
+                  </div>
+                  
+              {/* <div style={styles.cell}>
+                    <span style={styles.label}>Mark</span>
+                    <span style={styles.value}>{item.Mark}</span>
                   </div>
                   <div style={styles.cell}>
                     <span style={styles.label}>24h Change</span>
@@ -85,7 +108,7 @@ const Values = () => {
                   <div style={styles.cell}>
                     <span style={styles.label}>Funding / Countdown</span>
                     <span style={styles.value}>{item.Funding}</span>
-                  </div>
+                  </div> */}
                 </div>
               ))}
             </div>
@@ -134,7 +157,7 @@ const styles = {
     padding: '0 10px',
   },
   label: {
-    fontSize: '12px',
+    fontSize: '16px',
     color: '#888',
     marginBottom: '5px',
   },

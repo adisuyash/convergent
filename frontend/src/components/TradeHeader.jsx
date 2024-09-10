@@ -9,15 +9,9 @@ const Header = () => {
         <Link to="/" style={styles.title}>
           <h1 style={styles.logoText}>Convergent</h1>
         </Link>
-        <nav style={styles.navigation}>
-          <Link to="/trade" style={styles.navLink}>Trade</Link>
-          <Link to="/vaults" style={styles.navLink}>Vaults</Link>
-          <Link to="/portfolio" style={styles.navLink}>Portfolio</Link>
-          <Link to="/referral" style={styles.navLink}>Referral</Link>
-          <Link to="/points" style={styles.navLink}>Points</Link>
-          <Link to="/Leaderboard" style={styles.navLink}>Leaderboard</Link>
-          <Link to="/more" style={styles.navLink}>More</Link>
-        </nav>
+        {/* <nav style={styles.navigation}>
+          <Link to="/" style={styles.navLink}>Home</Link>
+        </nav> */}
       </div>
       <div style={styles.connectButtonContainer}>
         <ConnectButton

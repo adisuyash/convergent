@@ -1,11 +1,13 @@
 .orderbook {
-  font-family: Arial, sans-serif;
-  color: #fff;
-  background-color: #1e1e1e;
-  padding: 20px;
-  width: 100%;
-  max-width: 400px;
   margin: 0 auto;
+  background-color: #333333;
+  color: #FFFFFF;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
 }
 
 .order-title {
@@ -25,6 +27,7 @@
 
 .order-column {
   flex: 1;
+  z-index: 100;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
