@@ -3,11 +3,12 @@
   background-color: #333333;
   color: #FFFFFF;
   padding: 20px;
-  border-radius: 8px;
   font-family: 'Inter', sans-serif;
-  min-height: 700px;
+  height: 700px;
   display: flex;
   flex-direction: column;
+  border-right: 1px solid rgba(255, 255, 255, 0.13);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
 }
 
 .order-title {
@@ -18,7 +19,6 @@
 
 .orderbook-container {
   border: 1px solid #333;
-  border-radius: 5px;
   overflow: hidden;
   display: flex;
   flex-direction: column;

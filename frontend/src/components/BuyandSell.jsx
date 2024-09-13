@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import '../BuySellComponent.css';
+import { useState } from 'react';
+import '../components/BuySellComponent.css';
 import { message } from "@permaweb/aoconnect";
 import { useConnection } from "@arweave-wallet-kit/react";
 import { createDataItemSigner } from "@permaweb/aoconnect";
@@ -16,6 +16,7 @@ function BuySellComponent() {
   const submitOrderToBackend = async (orderDetails) => {
     try {
       const side = orderType === 'buy_long' ? 'Long' : 'Short';
+      const action = orderType === 'buy_long' ? 'buy' : 'sell'; // Define the action variable
 
       const res = await message({
         process: processId,
@@ -32,7 +33,7 @@ function BuySellComponent() {
         data: JSON.stringify(orderDetails),
       });
       console.log("Response from backend:", res);
-      return `${action} order placed successfully`;
+      return `${action} order placed successfully`; // Use the action variable
     } catch (error) {
       console.error("Error submitting to backend:", error);
       throw error;

@@ -115,7 +115,7 @@ const Values = () => {
           )}
         </div>
       </main >
-      <div className="flex gap-5">
+      <div className="flex">
         <div className="flex-[3]">
           <TradingViewWidget />
         </div>
