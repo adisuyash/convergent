@@ -11,9 +11,9 @@ const Home = () => {
         <img src={MySVG} alt="Background SVG" style={styles.svg} />
       </div>
       <div style={styles.container}>
-        <h2 style={styles.heading}>
+        <p style={styles.heading}>
           Trade <span style={styles.highlight}>Perpetuals</span> on AO
-        </h2>
+        </p>
         <p style={styles.paragraph}>
           Convergent is a decentralized perpetuals exchange on Arweave
           <br />
