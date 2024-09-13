@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useConnection } from "@arweave-wallet-kit/react";
 import { dryrun } from "@permaweb/aoconnect";
 import "../index.css";
@@ -10,7 +10,7 @@ const DataDisplay = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     if (!connected) {
       return;
     }
@@ -36,13 +36,15 @@ const DataDisplay = () => {
     } finally {
       setIsFetching(false);
     }
-  };
+  }, [connected, processId]);
 
   useEffect(() => {
     setIsFetching(true);
     fetchData();
-  }, [connected]);
+  }, [connected, fetchData]);
+
   console.log("Data state:", data);
+
   return (
     <div style={styles.container}>
       <h1 style={styles.h1}>Positions</h1>
@@ -92,13 +94,16 @@ const DataDisplay = () => {
 
 const styles = {
   container: {
-    padding: "20px",
+    padding: "20px 30px 30px 30px",
+    fontSize: "16px",
     fontFamily: "Arial, sans-serif",
+    border: "1px solid #333",
   },
   tableContainer: {
     overflowX: "auto",
   },
   row: {
+    textAlign: "center",
     display: "flex",
     padding: "10px 0",
   },
@@ -110,21 +115,22 @@ const styles = {
     minWidth: "100px",
   },
   label: {
-    fontSize: "12px",
-    color: "#666",
+    fontSize: "16px",
+    color: "#FFF",
     marginBottom: "5px",
+    fontWeight: "400",
   },
   value: {
     fontSize: "14px",
-    fontWeight: "bold",
   },
   error: {
     color: "red",
     fontWeight: "bold",
   },
   h1: {
-    fontSize: "30px",
-    borderBottom: "1px solid #FFFFFF",
+    fontSize: "20px",
+    borderBottom: "1px solid #333",
+    marginBottom: "5px"
   },
 };
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ConnectButton, useConnection } from "@arweave-wallet-kit/react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { connected } = useConnection();
@@ -18,9 +19,9 @@ const Navbar = () => {
 
   return (
     <div style={styles.navbar}>
-      <a href="/" style={styles.logoLink}>
+      <Link href="/" style={styles.logoLink}>
         <img src="/Convergent-Logo.png" alt="Logo" style={styles.logo} />
-      </a>
+      </Link>
       <ConnectButton
         style={{ ...styles.button, width: buttonWidth }}
         className="connect-button"
@@ -34,8 +35,8 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    height: "70px",
-    padding: "70px",
+    height: "50px",
+    padding: "60px 70px",
     backgroundColor: "transparent",
     position: "absolute",
     width: "100%",

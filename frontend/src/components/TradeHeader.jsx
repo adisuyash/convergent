@@ -1,23 +1,39 @@
-import { ConnectButton } from "@arweave-wallet-kit/react";
+import React, { useState } from "react";
+import { ConnectButton, useConnection } from "@arweave-wallet-kit/react";
 import { Link } from "react-router-dom";
 import "../index.css";
 
-const Header = () => {
+const TradeHeader = () => {
+  const { connected } = useConnection();
+  const [buttonWidth, setButtonWidth] = useState("200px"); // Initial width
+
+  React.useEffect(() => {
+    if (connected) {
+      const buttonElement = document.querySelector(".connect-button");
+      if (buttonElement) {
+        setButtonWidth(`300px`);
+      }
+    } else {
+      setButtonWidth("200px"); // Reset to default width when not connected
+    }
+  }, [connected]);
+
   return (
-    <header className="font-['Inter']" style={styles.header}>
+    <header style={styles.header}>
       <div style={styles.leftSection}>
-        <Link to="/" style={styles.title}>
-          <h1 style={styles.logoText}>Convergent</h1>
+        <Link to="/">
+          <img src="/Convergent-Logo.png" alt="Logo" style={styles.logo} />
         </Link>
-        {/* <nav style={styles.navigation}>
-          <Link to="/" style={styles.navLink}>Home</Link>
-        </nav> */}
       </div>
-      <div style={styles.connectButtonContainer}>
+      <div>
+        <nav style={styles.navigation}>
+          <Link to="/">Home</Link>
+        </nav>
+      </div>
+      <div>
         <ConnectButton
-          profileModal={true}
-          showBalance={false}
-          showProfilePicture={true}
+          style={{ ...styles.button, width: buttonWidth }}
+          className="connect-button"
         />
       </div>
     </header>
@@ -26,42 +42,39 @@ const Header = () => {
 
 const styles = {
   header: {
-    backgroundColor: "#272A2F",
-    padding: "10px 20px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+    height: "50px",
+    padding: "60px 70px 45px 70px",
+    backgroundColor: "transparent",
+    width: "100%",
+    top: "0",
+    left: "0",
+    right: "0",
   },
-  title: {
-    textDecoration: "none",
-    color: "#D9D9D9",
-  },
-  logoText: {
-    margin: 0,
-    fontSize: "40px",
-    fontWeight: "bold",
-  },
-  connectButtonContainer: {
-    display: "flex",
-    alignItems: "center",
-  },
-  leftSection: {
-    display: 'flex',
-    alignItems: 'center',
+  button: {
+    width: "200px",
+    padding: "10px 0",
+    backgroundColor: "#16181D",
+    color: "#FFFFFF",
+    border: "none",
+    borderRadius: "50px", // Capsule shape
+    cursor: "pointer",
+    fontSize: "16px",
+    transition: "box-shadow 0.3s ease",
+    boxShadow: "0 0 25px rgba(80, 210, 193, 0.3)", // Blur effect on all sides
   },
   navigation: {
-    display: 'flex',
-    alignItems: 'center',
-    marginLeft: '5rem',
+    display: "flex",
+    alignItems: "center",
+    marginLeft: "5rem",
+    fontSize: "1.2rem",
   },
-  navLink: {
-    textDecoration: 'none',
-    color: '#FFFFFF',
-    marginRight: '4rem',
-    fontSize: '1.3rem',
-    lineHeight: 1,
+  logo: {
+    width: "60px",
+    height: "60px",
   },
 };
 
-export default Header;
+export default TradeHeader;

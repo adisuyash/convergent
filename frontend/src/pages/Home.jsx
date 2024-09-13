@@ -5,7 +5,7 @@ import MySVG from "/Backdrop.svg"; // Adjust the path to your SVG file
 
 const Home = () => {
   return (
-    <main style={styles.main}>
+    <main style={styles.main} >
       <Navbar />
       <div style={styles.svgContainer}>
         <img src={MySVG} alt="Background SVG" style={styles.svg} />
@@ -34,6 +34,7 @@ export default Home;
 
 const styles = {
   main: {
+    paddingTop: '70px',
     position: 'relative',
     height: '100vh',
     overflow: 'hidden',

@@ -1,7 +1,8 @@
 /* Hide spinners for number input fields */
 input[type="number"] {
-    -moz-appearance: textfield;
     /* Firefox */
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -14,17 +15,17 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
 .buy-sell-component {
-    background-color: #333333;
+    background-color: #16181D;
     color: #FFFFFF;
     padding: 20px;
     font-family: 'Inter', sans-serif;
     height: 700px;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid rgba(255, 255, 255, 0.13);
-    /* White border with 50% transparency */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
-    /* White border with 50% transparency */
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    /* border-right: 1px solid rgba(255, 255, 255, 0.13);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.13); */
 }
 
 .order-title {
@@ -33,7 +34,7 @@ input[type="number"]::-webkit-outer-spin-button {
     margin-bottom: 1rem;
     text-align: center;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #FFFFFF;
+    border-bottom: 1px solid #333;
 }
 
 .order-type-toggle {
@@ -55,12 +56,14 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .toggle-button.active.buy {
     background-color: #50D2C1;
-    color: white;
+    color: #16181D;
+    font-weight: 500;
 }
 
 .toggle-button.active.sell {
     background-color: #ED7088;
-    color: white;
+    color: #FFFFFF;
+    font-weight: 500;
 }
 
 .order-form {
@@ -90,7 +93,12 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .form-input::placeholder {
-    color: #FFFFFF;
+    color: rgba(22, 24, 29, 0.85);
+}
+
+input.form-input {
+    color: #16181D;
+    /* Only applies to input text */
 }
 
 .leverage-slider {
@@ -107,7 +115,7 @@ input[type="number"]::-webkit-outer-spin-button {
     padding: 0.75rem;
     border: none;
     border-radius: 5px;
-    color: white;
+    color: #16181D;
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -124,14 +132,17 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .submit-button.sell {
     background-color: #ED7088;
+    color: #FFFFFF;
 }
 
 .submit-button.sell:hover {
     background-color: #DB2777;
+    color: #FFFFFF;
 }
 
 .status-message {
     margin-top: 1rem;
     font-size: 0.875rem;
     color: #9CA3AF;
+    text-align: center;
 }

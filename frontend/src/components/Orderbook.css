@@ -1,20 +1,20 @@
 .orderbook {
   margin: 0 auto;
-  background-color: #333333;
+  background-color: #16181D;
   color: #FFFFFF;
   padding: 20px;
   font-family: 'Inter', sans-serif;
   height: 700px;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid rgba(255, 255, 255, 0.13);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  /* border-right: 1px solid rgba(255, 255, 255, 0.13);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13); */
 }
 
-.order-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
+h2 {
+  border-bottom: 1px solid #333;
+
 }
 
 .orderbook-container {
@@ -64,6 +64,7 @@
   align-items: center;
   padding: 10px 20px;
   border-top: 1px solid #333;
+  border: 1px solid #333;
   border-bottom: 1px solid #333;
 }
 
